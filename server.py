@@ -74,6 +74,9 @@ def api_fetch():
         "no_warnings":  True,
         # Don't try to merge/remux — avoids needing ffmpeg on the server
         "postprocessors": [],
+        # Use the iOS player client — returns plain stream URLs without bot
+        # challenges, which is critical on data center IPs (Render, etc.)
+        "extractor_args": {"youtube": {"player_client": ["ios"]}},
     }
 
     try:
